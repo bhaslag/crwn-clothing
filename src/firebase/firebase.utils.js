@@ -69,15 +69,25 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   } ,{});
 }
 
+//mimicking functionality if not using firebase
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject)
+  });
+}
+
 //export firebase function methods
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
 //create google authentication utility from auth library
-const provider = new firebase.auth.GoogleAuthProvider();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
 //trigger google pop up whenever we use google auth provider
-provider.setCustomParameters({ prompt: 'select_account' })
+googleProvider.setCustomParameters({ prompt: 'select_account' })
 //we specify that we want the google pop up, no others
-export const signInWithGoogle  = () => auth.signInWithPopup(provider)
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider)
 
 export default firebase;
