@@ -12,7 +12,7 @@ export const selectCartItems = createSelector(
   //second argument is a function that returns the value we want from selector
   //can take multiple selectors
   //must order the arguments in the same order as they are in the array above
-  (cart) => cart.cartItems
+  (cart) => cart.cartItems || []
 );
 
 export const selectCartHidden = createSelector(
