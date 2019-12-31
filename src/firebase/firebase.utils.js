@@ -9,7 +9,7 @@ const config = {
   projectId: "crwn-db-b0e3b",
   storageBucket: "crwn-db-b0e3b.appspot.com",
   messagingSenderId: "9507927179",
-  appId: "1:9507927179:web:c3a8ac4126fe6ec877508e"
+  appId: "1:9507927179:web:c3a8ac4126fe6ec877508e",
 };
 
 firebase.initializeApp(config);
